@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+# Welcome to BlogDemo
+
+This is a simple blog powered by Jekyll and GitHub Pages, using the Hacker theme.
+
+## About
+
+This site demonstrates a basic GitHub Pages setup with Jekyll.
+
+## Features
+
+- Remote theme: [Hacker](https://github.com/pages-themes/hacker)
+- Automatic deployment via GitHub Actions
+- Simple and clean design
+
+## Pages
+
+- [Demo Page](/demo-page/) - Check out our demo page!
+
+## Recent Posts
+
+{% for post in paginator.posts %}
+- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%B %d, %Y" }}
+{% endfor %}
+
+<!-- Pagination links -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">&laquo; Previous</a>
+  {% else %}
+    <span>&laquo; Previous</span>
+  {% endif %}
+
+  <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Next &raquo;</a>
+  {% else %}
+    <span>Next &raquo;</span>
+  {% endif %}
+</div>
+{% endif %}
+
