@@ -16,3 +16,13 @@ This site demonstrates a basic GitHub Pages setup with Jekyll.
 - Automatic deployment via GitHub Actions
 - Simple and clean design
 
+## Pages
+
+- [Demo Page](/demo-page/) - Check out our demo page!
+
+## Recent Posts
+
+{% for post in site.posts %}
+- [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%B %d, %Y" }}
+{% endfor %}
+
